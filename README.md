@@ -22,5 +22,5 @@ docker-compose exec -d cassandra-seed /opt/cassandra/tools/bin/cassandra-stress 
 
 5. Verify events on debezium logs
 ```
-for name in cassandra-seed ; do docker-compose exec $name cat debezium.stdout.log | grep -i "Received event"; done
+for name in cassandra-seed ; do docker-compose exec $name cat debezium.stdout.log | grep -i "commit"; done
 ```
