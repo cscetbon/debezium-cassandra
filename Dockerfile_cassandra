@@ -4,7 +4,7 @@ RUN apt-get update -yqq && apt-get -yqq upgrade && apt-get install -yqq wget
 
 WORKDIR /app
 
-RUN wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-cassandra/1.1.0.Beta1/debezium-connector-cassandra-1.1.0.Beta1-jar-with-dependencies.jar
+RUN wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-cassandra/1.1.0.Final/debezium-connector-cassandra-1.1.0.Final-jar-with-dependencies.jar
 
 COPY default_cassandra.yaml /etc/cassandra/cassandra.yaml
 

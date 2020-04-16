@@ -54,10 +54,8 @@ services:
       - "9042:9042"
     volumes:
       - "cassandra_data_seed:/var/lib/cassandra"
-    environment: 
-      - "CASSANDRA_HOME=/etc/cassandra" 
+    environment:
       - "CASSANDRA_SEEDS=cassandra-seed"
-      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
     depends_on:
       - kafka1
       - schemaregistry
@@ -67,10 +65,8 @@ services:
       dockerfile: Dockerfile_cassandra
     volumes:
       - "cassandra_data_1:/var/lib/cassandra"
-    environment:
-      - "CASSANDRA_HOME=/etc/cassandra" 
+    environment: 
       - "CASSANDRA_SEEDS=cassandra-seed"
-      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
     depends_on:
       - cassandra-seed
       - schemaregistry
@@ -81,9 +77,7 @@ services:
     volumes:
       - "cassandra_data_2:/var/lib/cassandra"
     environment:
-      - "CASSANDRA_HOME=/etc/cassandra" 
       - "CASSANDRA_SEEDS=cassandra-seed"
-      - "CASSANDRA_CLUSTER_NAME=Test Cluster"
     depends_on:
       - cassandra1
       - schemaregistry
