@@ -2,10 +2,11 @@
 ```
 docker-compose up
 ```
-2. Initialize the keyspace
+2. Initialize keyspace
 ```
 docker-compose exec -d cassandra-seed /opt/cassandra/tools/bin/cassandra-stress write n=1 cl=one -mode native cql3 user=cassandra password=cassandra
-
+```
+```
 docker-compose exec -d cassandra-seed cqlsh -e "ALTER TABLE keyspace1.standard1 with cdc=true"
 ```
 3. Start debezium
