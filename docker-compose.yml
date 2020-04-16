@@ -59,30 +59,6 @@ services:
     depends_on:
       - kafka1
       - schemaregistry
-  cassandra1:
-    build:
-      context: .
-      dockerfile: Dockerfile_cassandra
-    volumes:
-      - "cassandra_data_1:/var/lib/cassandra"
-    environment: 
-      - "CASSANDRA_SEEDS=cassandra-seed"
-    depends_on:
-      - cassandra-seed
-      - schemaregistry
-  cassandra2:
-    build:
-      context: .
-      dockerfile: Dockerfile_cassandra
-    volumes:
-      - "cassandra_data_2:/var/lib/cassandra"
-    environment:
-      - "CASSANDRA_SEEDS=cassandra-seed"
-    depends_on:
-      - cassandra1
-      - schemaregistry
 
 volumes:
   cassandra_data_seed:
-  cassandra_data_1:
-  cassandra_data_2:
