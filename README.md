@@ -17,10 +17,15 @@ This can take some time as cassandra takes some time to start.
 
 4. Make changes
 ```
-docker-compose exec -d cassandra-seed /opt/cassandra/tools/bin/cassandra-stress write n=100K cl=one -mode native cql3 user=cassandra password=cassandra
+docker-compose exec cassandra-seed /opt/cassandra/tools/bin/cassandra-stress write n=5K cl=one -mode native cql3 user=cassandra password=cassandra
 ```
 
-5. Verify events on debezium logs
+5. Force commitlog to be pushed to cdc folder
+```
+docker-compose exec cassandra-seed nodetool flush
+```
+
+6. Verify events on debezium logs
 ```
 docker-compose exec cassandra-seed  cat debezium.stdout.log | grep -i "commit"; done
 ```
