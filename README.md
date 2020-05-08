@@ -29,3 +29,9 @@ docker-compose exec cassandra-seed nodetool flush
 ```
 docker-compose exec cassandra-seed  cat debezium.stdout.log | grep -i "commit"
 ```
+
+7. Shut it down
+When you're done just run the command below to delete containers and the corresponding volumes
+```
+docker-compose down -v
+```
