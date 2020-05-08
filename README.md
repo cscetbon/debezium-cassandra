@@ -27,5 +27,5 @@ docker-compose exec cassandra-seed nodetool flush
 
 6. Verify events on debezium logs
 ```
-docker-compose exec cassandra-seed  cat debezium.stdout.log | grep -i "commit"; done
+docker-compose exec cassandra-seed  cat debezium.stdout.log | grep -i "commit"
 ```
